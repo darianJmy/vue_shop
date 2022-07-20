@@ -4,7 +4,11 @@ import {
   ElFormItem,
   ElInput,
   ElRow,
-  ElMessage
+  ElMessage,
+  ElContainer,
+  ElHeader,
+  ElAside,
+  ElMain
 } from 'element-plus'
 
 export default (app) => {
@@ -14,4 +18,8 @@ export default (app) => {
   app.use(ElInput)
   app.use(ElRow)
   app.use(ElMessage)
+  app.use(ElContainer)
+  app.use(ElHeader)
+  app.use(ElAside)
+  app.use(ElMain)
 }

@@ -8,7 +8,7 @@
                 <img src="../assets/logo.png" alt="">
             </div>
             <!-- 登录表单-->
-            <el-form class="login_form" label-width="0px" :model="loginForm" :rules="loginFormRules" ref="loginFormRef">
+            <el-form class="login_form" label-width="0px" :model="loginForm" :rules="loginFormRules" ref="loginFormRef" v-on:keyup.enter="login">
                 <!-- 用户名 -->
                 <el-form-item prop="username">
                     <el-input v-model="loginForm.username" prefix-icon="el-icon-usercenter"></el-input>
