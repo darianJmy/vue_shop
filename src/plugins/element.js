@@ -8,7 +8,25 @@ import {
   ElContainer,
   ElHeader,
   ElAside,
-  ElMain
+  ElMain,
+  ElMenu,
+  ElSubmenu,
+  ElMenuItem,
+  ElMenuItemGroup,
+  ElIcon,
+  ElRadioGroup,
+  ElRadioButton,
+  ElBreadcrumb,
+  ElBreadcrumbItem,
+  ElCard,
+  ElSelect,
+  ElOption,
+  ElCol,
+  ElTable,
+  ElTableColumn,
+  ElSwitch,
+  ElTooltip,
+  ElPagination
 } from 'element-plus'
 
 export default (app) => {
@@ -22,4 +40,22 @@ export default (app) => {
   app.use(ElHeader)
   app.use(ElAside)
   app.use(ElMain)
+  app.use(ElMenu)
+  app.use(ElSubmenu)
+  app.use(ElMenuItem)
+  app.use(ElMenuItemGroup)
+  app.use(ElIcon)
+  app.use(ElRadioGroup)
+  app.use(ElRadioButton)
+  app.use(ElBreadcrumb)
+  app.use(ElBreadcrumbItem)
+  app.use(ElCard)
+  app.use(ElSelect)
+  app.use(ElOption)
+  app.use(ElCol)
+  app.use(ElTable)
+  app.use(ElTableColumn)
+  app.use(ElSwitch)
+  app.use(ElTooltip)
+  app.use(ElPagination)
 }
