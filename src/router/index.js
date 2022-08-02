@@ -3,6 +3,9 @@ import LoginView from '../components/LoginView'
 import HomeView from '../components/HomeView'
 import WelcomView from '../components/WelcomeView'
 import UsersView from '../components/user/UsersView'
+import RightView from '../components/power/rights/RightsView'
+import RolesView from '../components/power/roles/RolesView'
+
 const routes = [
   {
     path: '/',
@@ -18,7 +21,9 @@ const routes = [
     redirect: '/welcome',
     children: [
       { path: '/welcome', component: WelcomView },
-      { path: '/users', component: UsersView }
+      { path: '/users', component: UsersView },
+      { path: '/rights', component: RightView },
+      { path: '/roles', component: RolesView }
     ]
   }
 ]

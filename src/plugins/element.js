@@ -28,7 +28,9 @@ import {
   ElTooltip,
   ElPagination,
   ElDialog,
-  ElMessageBox
+  ElMessageBox,
+  ElTag,
+  ElTree
 } from 'element-plus'
 
 export default (app) => {
@@ -62,4 +64,6 @@ export default (app) => {
   app.use(ElPagination)
   app.use(ElDialog)
   app.use(ElMessageBox)
+  app.use(ElTag)
+  app.use(ElTree)
 }

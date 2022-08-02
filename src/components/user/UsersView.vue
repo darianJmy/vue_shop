@@ -49,11 +49,21 @@
         <!-- 用户操作区域 -->
         <el-table-column label="操作">
           <template v-slot="scope">
-            <el-button type="primary" icon="el-icon-edit" size="mini" @click="showEditDialog(scope.row.id)" />
-          <el-button type="danger" icon="el-icon-delete" size="mini" @click="removeUserById(scope.row.id)"/>
-          <el-tooltip content="分配角色" placement="top">
-            <el-button type="warning" icon="el-icon-setting" size="mini" />
-          </el-tooltip>
+            <el-button
+              type="primary"
+              icon="el-icon-edit"
+              size="mini"
+              @click="showEditDialog(scope.row.id)"
+            />
+            <el-button
+              type="danger"
+              icon="el-icon-delete"
+              size="mini"
+              @click="removeUserById(scope.row.id)"
+            />
+            <el-tooltip content="分配角色" placement="top">
+              <el-button type="warning" icon="el-icon-setting" size="mini" />
+            </el-tooltip>
           </template>
         </el-table-column>
       </el-table>
@@ -69,76 +79,87 @@
       />
     </el-card>
     <!-- 添加用户弹窗区域 -->
-    <el-dialog title="添加用户" width="50%" v-model="dialogVisible" @close="addDislogClosed">
+    <el-dialog
+      title="添加用户"
+      width="50%"
+      v-model="dialogVisible"
+      @close="addDislogClosed"
+    >
       <!-- 添加用户表单区域 -->
-    <el-form
-    :model="addForm"
-    :rules="addFormRules"
-    ref="addFormRef"
-    label-width="80px" >
-    <el-form-item label="用户名" prop="username">
-      <el-input v-model="addForm.username" />
-    </el-form-item>
-    <el-form-item label="密码" prop="password">
-      <el-input v-model="addForm.password" />
-    </el-form-item>
-    <el-form-item label="邮箱" prop="email">
-      <el-input v-model="addForm.email" />
-    </el-form-item>
-    <el-form-item label="手机" prop="moblie">
-      <el-input v-model="addForm.moblie" />
-    </el-form-item>
-    </el-form>
-    <!-- 添加用户按钮区域 -->
-    <template #footer>
-      <span class="dialog-footer">
-      <el-button @click="dialogVisible = false" >取消</el-button>
-      <el-button @click="addUser" type="primary">确定</el-button>
-      </span>
-    </template>
+      <el-form
+        :model="addForm"
+        :rules="addFormRules"
+        ref="addFormRef"
+        label-width="80px"
+      >
+        <el-form-item label="用户名" prop="username">
+          <el-input v-model="addForm.username" />
+        </el-form-item>
+        <el-form-item label="密码" prop="password">
+          <el-input v-model="addForm.password" />
+        </el-form-item>
+        <el-form-item label="邮箱" prop="email">
+          <el-input v-model="addForm.email" />
+        </el-form-item>
+        <el-form-item label="手机" prop="moblie">
+          <el-input v-model="addForm.moblie" />
+        </el-form-item>
+      </el-form>
+      <!-- 添加用户按钮区域 -->
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="dialogVisible = false">取消</el-button>
+          <el-button @click="addUser" type="primary">确定</el-button>
+        </span>
+      </template>
     </el-dialog>
     <!-- 修改用户弹窗区域 -->
-    <el-dialog title="修改用户" width="50%"  v-model="editDialogVisible" @close="editDislogClosed" >
+    <el-dialog
+      title="修改用户"
+      width="50%"
+      v-model="editDialogVisible"
+      @close="editDislogClosed"
+    >
       <!-- 修改用户表单区域 -->
       <el-form :model="editForm" ref="editFormRef" label-width="80px">
-        <el-form-item label="用户名"  >
-          <el-input disabled v-model="editForm.username"/>
+        <el-form-item label="用户名">
+          <el-input disabled v-model="editForm.username" />
         </el-form-item>
-                <el-form-item label="邮箱" >
-          <el-input  v-model="editForm.email"/>
+        <el-form-item label="邮箱">
+          <el-input v-model="editForm.email" />
         </el-form-item>
-                <el-form-item label="手机" >
-          <el-input v-model="editForm.mobile"/>
+        <el-form-item label="手机">
+          <el-input v-model="editForm.mobile" />
         </el-form-item>
       </el-form>
       <!-- 修改用户按钮区域 -->
       <template #footer>
-      <span class="dialog-footer">
-      <el-button @click="editDialogVisible = false" >取消</el-button>
-      <el-button @click="editUserInfo" type="primary">确定</el-button>
-      </span>
-    </template>
+        <span class="dialog-footer">
+          <el-button @click="editDialogVisible = false">取消</el-button>
+          <el-button @click="editUserInfo" type="primary">确定</el-button>
+        </span>
+      </template>
     </el-dialog>
-    <el-dialog title="永久删除改用户" width="50%"  @close="deleteDislogClosed" >
+    <el-dialog title="永久删除改用户" width="50%" @close="deleteDislogClosed">
       <!-- 修改用户表单区域 -->
       <el-form :model="editForm" ref="editFormRef" label-width="80px">
-        <el-form-item label="用户名"  >
-          <el-input disabled v-model="editForm.username"/>
+        <el-form-item label="用户名">
+          <el-input disabled v-model="editForm.username" />
         </el-form-item>
-                <el-form-item label="邮箱" >
-          <el-input  v-model="editForm.email"/>
+        <el-form-item label="邮箱">
+          <el-input v-model="editForm.email" />
         </el-form-item>
-                <el-form-item label="手机" >
-          <el-input v-model="editForm.mobile"/>
+        <el-form-item label="手机">
+          <el-input v-model="editForm.mobile" />
         </el-form-item>
       </el-form>
       <!-- 修改用户按钮区域 -->
       <template #footer>
-      <span class="dialog-footer">
-      <el-button @click="editDialogVisible = false" >取消</el-button>
-      <el-button @click="editUserInfo" type="primary">确定</el-button>
-      </span>
-    </template>
+        <span class="dialog-footer">
+          <el-button @click="editDialogVisible = false">取消</el-button>
+          <el-button @click="editUserInfo" type="primary">确定</el-button>
+        </span>
+      </template>
     </el-dialog>
   </div>
 </template>
@@ -235,7 +256,7 @@ export default {
       const { data: res } = await require('axios').get('users', {
         params: this.queryInfo
       })
-      if (res.meta.status !== 200) return this.$message.error('获取用户列表失败')
+      if (res.meta.status !== 200) { return this.$message.error('获取用户列表失败') }
       console.log(res)
       this.userlist = res.data.users
       this.total = res.data.total
@@ -264,8 +285,11 @@ export default {
     addUser () {
       this.$refs.addFormRef.validate(async (valid) => {
         if (valid) {
-          const { data: res } = await require('axios').post('users', this.addForm)
-          if (res.meta.status !== 201) return this.$message.error('添加用户失败')
+          const { data: res } = await require('axios').post(
+            'users',
+            this.addForm
+          )
+          if (res.meta.status !== 201) { return this.$message.error('添加用户失败') }
           this.dialogVisible = false
           this.getUserList()
           return this.$message.success('添加用户成功')
@@ -277,12 +301,15 @@ export default {
     },
     async showEditDialog (id) {
       const { data: res } = await require('axios').get('users' + '/' + id)
-      if (res.meta.status !== 200) return this.$message.error('查询用户信息失败')
+      if (res.meta.status !== 200) { return this.$message.error('查询用户信息失败') }
       this.editForm = res.data
       this.editDialogVisible = true
     },
     async editUserInfo () {
-      const { data: res } = await require('axios').put('users' + '/' + this.editForm.id, this.editForm)
+      const { data: res } = await require('axios').put(
+        'users' + '/' + this.editForm.id,
+        this.editForm
+      )
       console.log(res)
       if (res.meta.status !== 200) return this.$message.error('修改用户失败')
       this.$message.success('修改用户信息成功')
@@ -293,11 +320,15 @@ export default {
       this.$refs.editFormRef.resetFields()
     },
     async removeUserById (id) {
-      const confirmRusult = await this.$confirm('此操作将永久删除该文件, 是否继续?', '永久删除该用户', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).catch(err => err)
+      const confirmRusult = await this.$confirm(
+        '此操作将永久删除该文件, 是否继续?',
+        '永久删除该用户',
+        {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }
+      ).catch((err) => err)
       if (confirmRusult !== 'confirm') return this.$message.info('删除已取消')
       const { data: res } = await require('axios').delete('users' + '/' + id)
       if (res.meta.status !== 200) return this.$message.error('删除用户失败')
@@ -321,7 +352,7 @@ export default {
 }
 .el-dialog {
   .dialog-footer {
-  margin-right: 10px;
-}
+    margin-right: 10px;
+  }
 }
 </style>
